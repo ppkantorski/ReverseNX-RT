@@ -38,13 +38,13 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
 APP_TITLE	:=	ReverseNX-RT
-APP_VERSION	:=	2.0.0
+APP_VERSION	:=	2.0.0+
 
 TARGET		:=	ReverseNX-RT-ovl
 BUILD		:=	build
-SOURCES		:=	source libs/Atmosphere-libs/libstratosphere/source/dmnt
+SOURCES		:=	libs/libultrahand/libultra/source source libs/Atmosphere-libs/libstratosphere/source/dmnt
 DATA		:=	data
-INCLUDES	:=	include libs/libtesla/include libs/Atmosphere-libs/libstratosphere/source/dmnt libs/Atmosphere-libs/libstratosphere/source
+INCLUDES	:=	include libs/libultrahand/libultra/include libs/libultrahand/libtesla/include libs/Atmosphere-libs/libstratosphere/source/dmnt libs/Atmosphere-libs/libstratosphere/source
 
 NO_ICON		:=  1
 
@@ -57,6 +57,15 @@ CFLAGS		:= -g -Wall -Os -ffunction-sections \
 			$(ARCH) $(DEFINES)
 
 CFLAGS		+= $(INCLUDE) -D__SWITCH__ -DAPP_VERSION="\"$(APP_VERSION)\""
+
+# Enable appearance overriding
+UI_OVERRIDE_PATH := /config/ReverseNX-RT/
+CFLAGS += -DUI_OVERRIDE_PATH="\"$(UI_OVERRIDE_PATH)\""
+
+# Disable fstream
+NO_FSTREAM_DIRECTIVE := 1
+CFLAGS += -DNO_FSTREAM_DIRECTIVE=$(NO_FSTREAM_DIRECTIVE)
+
 
 CXXFLAGS	:= $(CFLAGS) -fno-exceptions -std=c++20
 
