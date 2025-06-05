@@ -175,7 +175,7 @@ public:
 					else snprintf(saveChar, sizeof(saveChar), "Saving settings failed!");
 					return true;
 				}
-				
+
 				return false;
 			});
 			list->addItem(clickableListItem3);
