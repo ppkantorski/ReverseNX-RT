@@ -74,7 +74,7 @@ UI_OVERRIDE_PATH := /config/ReverseNX-RT/
 CFLAGS += -DUI_OVERRIDE_PATH="\"$(UI_OVERRIDE_PATH)\""
 
 # Enable Widget
-CFLAGS += -DUSING_WIDGET_DIRECTIVE=1
+#CFLAGS += -DUSING_WIDGET_DIRECTIVE=1
 
 # Exception wrap utilization (for smaller compilation size)
 CFLAGS += -DUSE_EXCEPTION_WRAP=1
