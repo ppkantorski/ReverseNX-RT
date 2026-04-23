@@ -1,4 +1,5 @@
 #define TESLA_INIT_IMPL // If you have more than one file using the tesla header, only define this in the main one
+#include <exception_wrap.hpp>
 #include <tesla.hpp>    // The Tesla Header
 #include "SaltyNX.h"
 #include <dirent.h>
@@ -252,8 +253,7 @@ public:
 			clickableListItem->setClickListener([](u64 keys) { 
 				if ((keys & HidNpadButton_A) && PluginRunning) {
 					ReverseNX_RT->def = !(ReverseNX_RT->def);
-					tsl::goBack();
-					tsl::changeTo<GuiTest>(1, 2, true);
+					tsl::swapTo<GuiTest>(1, 2, true);
 					return true;
 				}
 
@@ -363,7 +363,6 @@ public:
 	virtual bool handleInput(u64 keysDown, u64 keysHeld, const HidTouchState &touchPos, HidAnalogStickState joyStickPosLeft, HidAnalogStickState joyStickPosRight) override {
 		if (keysDown & HidNpadButton_B) {
 			tsl::goBack();
-			tsl::goBack();
 			return true;
 		}
 		return false;   // Return true here to singal the inputs have been consumed
@@ -383,7 +382,7 @@ public:
 
 	// Called once every frame to handle inputs not handled by other UI elements
 	virtual bool handleInput(u64 keysDown, u64 keysHeld, const HidTouchState &touchPos, HidAnalogStickState joyStickPosLeft, HidAnalogStickState joyStickPosRight) override {
-		tsl::changeTo<GuiTest>(0, 1, true);
+		tsl::swapTo<GuiTest>(0, 1, true);
 		return true;   // Return true here to singal the inputs have been consumed
 	}
 };
