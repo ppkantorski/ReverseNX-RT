@@ -1,3 +1,6 @@
 [submodule "Overlay/libs/Atmosphere-libs"]
 	path = Overlay/libs/Atmosphere-libs
 	url = https://github.com/Atmosphere-NX/Atmosphere-libs
+[submodule "Overlay/libs/libultrahand"]
+	path = Overlay/libs/libultrahand
+	url = https://github.com/ppkantorski/libultrahand
