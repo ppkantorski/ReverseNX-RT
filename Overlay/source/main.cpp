@@ -212,38 +212,38 @@ public:
 		
 		list->addItem(new tsl::elm::CustomDrawer([](tsl::gfx::Renderer *renderer, s32 x, s32 y, s32 w, s32 h) {
 			if (!SaltySD) {
-				renderer->drawString("SaltyNX is not working!", false, x, y+50, 20, renderer->a(0xF33F));
+				renderer->drawString("SaltyNX is not working!", false, x+7, y+50, 20, renderer->a(0xF33F));
 			}
 			else if (!check) {
 				if (closed) {
-					renderer->drawString("Game was closed! Overlay disabled!", false, x, y+20, 19, renderer->a(0xF33F));
+					renderer->drawString("Game was closed! Overlay disabled!", false, x+7, y+20, 19, renderer->a(0xF33F));
 				}
 				else {
-					renderer->drawString("Game is not running! Overlay disabled!", false, x, y+20, 19, renderer->a(0xF33F));
+					renderer->drawString("Game is not running! Overlay disabled!", false, x+7, y+20, 19, renderer->a(0xF33F));
 				}
 			}
 			else if (!PluginRunning) {
-				renderer->drawString("Game is running.", false, x, y+20, 20, renderer->a(0xFFFF));
-				renderer->drawString("ReverseNX-RT is not running!", false, x, y+40, 20, renderer->a(0xF33F));
+				renderer->drawString("Game is running.", false, x+7, y+20, 20, renderer->a(0xFFFF));
+				renderer->drawString("ReverseNX-RT is not running!", false, x+7, y+40, 20, renderer->a(0xF33F));
 			}
 			else {
-				renderer->drawString("ReverseNX-RT is running.", false, x, y+20, 20, renderer->a(0xFFFF));
-				if (!(ReverseNX_RT->pluginActive)) renderer->drawString("Game didn't check any mode!", false, x, y+40, 18, renderer->a(0xF33F));
+				renderer->drawString("ReverseNX-RT is running.", false, x+7, y+20, 20, renderer->a(0xFFFF));
+				if (!(ReverseNX_RT->pluginActive)) renderer->drawString("Game didn't check any mode!", false, x+7, y+40, 18, renderer->a(0xF33F));
 				else {
-					renderer->drawString(SystemChar, false, x, y+42, 20, renderer->a(0xFFFF));
-					renderer->drawString(DockedChar, false, x, y+64, 20, renderer->a(0xFFFF));
+					renderer->drawString(SystemChar, false, x+7, y+42, 20, renderer->a(0xFFFF));
+					renderer->drawString(DockedChar, false, x+7, y+64, 20, renderer->a(0xFFFF));
 					if (!(ReverseNX_RT->def)) {
 						if (ReverseNX_RT->wasDDRused) {
-							renderer->drawString(HandheldDDR, false, x, y+86, 20, renderer->a(0xFFFF));
-							renderer->drawString(DockedDDR, false, x, y+108, 20, renderer->a(0xFFFF));
+							renderer->drawString(HandheldDDR, false, x+7, y+86, 20, renderer->a(0xFFFF));
+							renderer->drawString(DockedDDR, false, x+7, y+108, 20, renderer->a(0xFFFF));
 						}
 						else {
-							renderer->drawString("Default Display Resolution", false, x, y+86, 20, renderer->a(0xFFFF));
-							renderer->drawString("was not checked!", false, x, y+108, 20, renderer->a(0xFFFF));							
+							renderer->drawString("Default Display Resolution", false, x+7, y+86, 20, renderer->a(0xFFFF));
+							renderer->drawString("was not checked!", false, x+7, y+108, 20, renderer->a(0xFFFF));							
 						}
 					}
 				}
-				renderer->drawString(saveChar, false, x, y+130, 20, renderer->a(0xFFFF));
+				renderer->drawString(saveChar, false, x+7, y+130, 20, renderer->a(0xFFFF));
 			}
 	}), 150);
 
